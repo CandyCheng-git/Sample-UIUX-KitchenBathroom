@@ -1,16 +1,16 @@
   /*
   ---------------------------------------------
-  Hero 16:9 Slider (Top of Main Banner)
+  Home 16:9 Slider (Top of Main Banner)
   ---------------------------------------------
   */
   (function () {
-    const root   = document.querySelector('.ekb-hero');
+    const root   = document.querySelector('.ekb-home');
     if (!root) return;
 
-    const slides = Array.from(root.querySelectorAll('.ekb-hero__slide'));
-    const prev   = root.querySelector('.ekb-hero__nav--prev');
-    const next   = root.querySelector('.ekb-hero__nav--next');
-    const dotsEl = root.querySelector('.ekb-hero__dots');
+    const slides = Array.from(root.querySelectorAll('.ekb-home__slide'));
+    const prev   = root.querySelector('.ekb-home__nav--prev');
+    const next   = root.querySelector('.ekb-home__nav--next');
+    const dotsEl = root.querySelector('.ekb-home__dots');
 
     let index = 0;
     let timer = null;
@@ -97,11 +97,11 @@
 
 /*
 ---------------------------------------------
-Bathroom
+service A
 ---------------------------------------------
 */
-// Bathroom carousel (16:9, no inner scroll, stable height)
-$('#bathroom .owl-men-item').owlCarousel({
+// service carousel (16:9, no inner scroll, stable height)
+$('#service .owl-men-item').owlCarousel({
   items: 1,
   loop: true,
   margin: 20,
@@ -116,6 +116,7 @@ $('#bathroom .owl-men-item').owlCarousel({
     1200:{ items: 3 }    // optional: 3 across on desktops
   }
 });
+
 /*
 ---------------------------------------------
 Gallery

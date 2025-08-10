@@ -1,13 +1,13 @@
 /*
 ---------------------------------------------
-Hero 16:9 Slider (Top of Main Banner)
+home 16:9 Slider (Top of Main Banner)
 ---------------------------------------------
 */
-#hero{
+#home{
     /*padding-top:130px;*/
 }
-/* ===== EKB Hero 16:9 Slider ===== */
-.ekb-hero {
+/* ===== EKB home 16:9 Slider ===== */
+.ekb-home {
   position: relative;
   width: 100%;
   /* Keep perfect 16:9 while never exceeding viewport height */
@@ -18,18 +18,18 @@ Hero 16:9 Slider (Top of Main Banner)
   margin-top: 0;
 }
 
-.header-sticky + .ekb-hero {
+.header-sticky + .ekb-home {
   /* If your header is fixed and overlaps, add top padding/margin as needed */
   /* margin-top: var(--header-height, 0px); */
 }
 
-.ekb-hero__track {
+.ekb-home__track {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.ekb-hero__slide {
+.ekb-home__slide {
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -37,12 +37,12 @@ Hero 16:9 Slider (Top of Main Banner)
   will-change: opacity;
 }
 
-.ekb-hero__slide.is-active {
+.ekb-home__slide.is-active {
   opacity: 1;
   z-index: 1;
 }
 
-.ekb-hero__slide img {
+.ekb-home__slide img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -53,7 +53,7 @@ Hero 16:9 Slider (Top of Main Banner)
 }
 
 /* Caption */
-.ekb-hero__caption {
+.ekb-home__caption {
   position: absolute;
   left: 50%;
   bottom: clamp(16px, 6vw, 64px);
@@ -65,14 +65,14 @@ Hero 16:9 Slider (Top of Main Banner)
   pointer-events: none;
 }
 
-.ekb-hero__caption h2 {
+.ekb-home__caption h2 {
   margin: 0 0 6px 0;
   font-weight: 700;
   letter-spacing: 0.5px;
   font-size: clamp(24px, 4vw, 48px);
 }
 
-.ekb-hero__caption p {
+.ekb-home__caption p {
   margin: 0;
   font-size: clamp(14px, 2vw, 18px);
   opacity: 0.95;
@@ -80,7 +80,7 @@ Hero 16:9 Slider (Top of Main Banner)
 }
 
 /* Arrows */
-.ekb-hero__nav {
+.ekb-home__nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -98,12 +98,12 @@ Hero 16:9 Slider (Top of Main Banner)
   transition: background 200ms ease;
 }
 
-.ekb-hero__nav:hover { background: rgba(0,0,0,0.6); }
-.ekb-hero__nav--prev { left: clamp(8px, 2vw, 24px); }
-.ekb-hero__nav--next { right: clamp(8px, 2vw, 24px); }
+.ekb-home__nav:hover { background: rgba(0,0,0,0.6); }
+.ekb-home__nav--prev { left: clamp(8px, 2vw, 24px); }
+.ekb-home__nav--next { right: clamp(8px, 2vw, 24px); }
 
 /* Dots */
-.ekb-hero__dots {
+.ekb-home__dots {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -113,7 +113,7 @@ Hero 16:9 Slider (Top of Main Banner)
   z-index: 2;
 }
 
-.ekb-hero__dots button {
+.ekb-home__dots button {
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -123,14 +123,14 @@ Hero 16:9 Slider (Top of Main Banner)
   transition: transform 150ms ease, background 150ms ease;
 }
 
-.ekb-hero__dots button[aria-selected="true"] {
+.ekb-home__dots button[aria-selected="true"] {
   background: #fff;
   transform: scale(1.2);
 }
 
 /* Responsive safety */
 @media (max-height: 520px) and (orientation: landscape) {
-  .ekb-hero__caption { display: none; } /* keep visuals uncluttered on short viewports */
+  .ekb-home__caption { display: none; } /* keep visuals uncluttered on short viewports */
 }
 
 
@@ -171,6 +171,8 @@ Client Comments
 */
 #comment{
     padding-top:130px;
+    padding-bottom: 90px;
+    border-bottom: 3px dotted #eee;
 }
 
 /* Testimonials */
@@ -224,14 +226,37 @@ Kitchen
 }
 /*
 ---------------------------------------------
-Bathroom
+Service A
 ---------------------------------------------
 */
+#service{
+    padding-top:130px;
+    padding-bottom: 90px;
+    border-bottom: 3px dotted #eee;
+}
+#service .section-heading h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+#service .section-heading {
+    margin-bottom: 60px;
+}
+
+
+
+#service .section-heading span {
+  font-size: 14px;
+  color: #a1a1a1;
+  font-style: italic;
+  font-weight: 400;
+}
+
 /* 16:9 box */
 .aspect-16x9 {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;          /* modern browsers */
+  aspect-ratio: 9 / 16;          /* modern browsers */
   overflow: hidden;
   background: #f2f2f2;
 }
@@ -251,7 +276,7 @@ Bathroom
 }
 
 /* Card look to match your screenshot */
-.bathroom-card {
+.service-card {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0,0,0,.06);
@@ -259,19 +284,73 @@ Bathroom
 }
 
 /* Tidy up spacing between items on small screens */
-#bathroom .bathroom-row + .bathroom-row { margin-top: 24px; }
+#service .service-row + .service-row { margin-top: 24px; }
 
 /* Optional: make the outline button slightly rounder */
-#bathroom .btn-outline-primary {
+#service .btn-outline-primary {
   border-width: 2px;
   border-radius: 999px;
 }
 /*
 ---------------------------------------------
-Gallery
+service B
 ---------------------------------------------
 */
 
+#service-B{
+    padding-top:130px;
+    padding-bottom: 90px;
+    border-bottom: 3px dotted #eee;
+}
+#service-B .section-heading h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+#service-B .section-heading {
+    margin-bottom: 60px;
+}
+
+
+
+/* 16:9 utility (in case you don't have it yet) */
+#service-B .aspect-16x9{
+    position:relative; width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    background:#f2f2f2;
+}
+#service-B .aspect-16x9 img{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%; object-fit:cover; display:block;
+}
+#service-B @supports not (aspect-ratio: 16/9){
+  .aspect-16x9{ padding-top:56.25%; }
+  .aspect-16x9 img{ position:absolute; inset:0; }
+}
+
+/* Service card styling (matches your existing look) */
+#service-B .service-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  overflow:hidden;
+}
+#service-B .service-card--tile .service-media
+{ border-bottom:1px solid rgba(0,0,0,.05); }
+
+
+/*
+---------------------------------------------
+Gallery
+---------------------------------------------
+*/
+#gallery{
+    padding-top:130px;
+    padding-bottom: 90px;
+    border-bottom: 3px dotted #eee;
+}
 /* Follow Our Projects */
 .projects .section-heading { margin-bottom: 22px; }
 
