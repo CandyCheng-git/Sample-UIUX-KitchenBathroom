@@ -1,0 +1,351 @@
+/*
+---------------------------------------------
+Hero 16:9 Slider (Top of Main Banner)
+---------------------------------------------
+*/
+#hero{
+    /*padding-top:130px;*/
+}
+/* ===== EKB Hero 16:9 Slider ===== */
+.ekb-hero {
+  position: relative;
+  width: 100%;
+  /* Keep perfect 16:9 while never exceeding viewport height */
+  height: min(56.25vw, 100vh); /* 9/16 = 0.5625 */
+  overflow: hidden;
+  background: #000;
+  /* Push content below sticky header nicely if header overlaps */
+  margin-top: 0;
+}
+
+.header-sticky + .ekb-hero {
+  /* If your header is fixed and overlaps, add top padding/margin as needed */
+  /* margin-top: var(--header-height, 0px); */
+}
+
+.ekb-hero__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ekb-hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+  will-change: opacity;
+}
+
+.ekb-hero__slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.ekb-hero__slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills 16:9 box without squishing */
+  object-position: center;
+  display: block;
+}
+
+/* Caption */
+.ekb-hero__caption {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 6vw, 64px);
+  transform: translateX(-50%);
+  width: min(92%, 1100px);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.ekb-hero__caption h2 {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: clamp(24px, 4vw, 48px);
+}
+
+.ekb-hero__caption p {
+  margin: 0;
+  font-size: clamp(14px, 2vw, 18px);
+  opacity: 0.95;
+  color: #fff;
+}
+
+/* Arrows */
+.ekb-hero__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  font-size: 22px;
+  line-height: 44px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 200ms ease;
+}
+
+.ekb-hero__nav:hover { background: rgba(0,0,0,0.6); }
+.ekb-hero__nav--prev { left: clamp(8px, 2vw, 24px); }
+.ekb-hero__nav--next { right: clamp(8px, 2vw, 24px); }
+
+/* Dots */
+.ekb-hero__dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: clamp(10px, 3vw, 28px);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.ekb-hero__dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.ekb-hero__dots button[aria-selected="true"] {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* Responsive safety */
+@media (max-height: 520px) and (orientation: landscape) {
+  .ekb-hero__caption { display: none; } /* keep visuals uncluttered on short viewports */
+}
+
+
+/* Testimonials */
+.testimonial-item {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+}
+
+.testimonial-item span {
+    font-size: 14px;
+    color: #999;
+}
+
+/*
+---------------------------------------------
+Client Comments
+---------------------------------------------
+*/
+#comment{
+    padding-top:130px;
+}
+
+/* Testimonials */
+.testimonial-item {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+}
+
+.testimonial-item span {
+    font-size: 14px;
+    color: #999;
+}
+/*
+---------------------------------------------
+Kitchen
+---------------------------------------------
+*/
+.kitchen-item-carousel .thumb {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 9 / 16 = 0.5625 → 56.25% */
+    overflow: hidden;
+}
+
+.kitchen-item-carousel .thumb img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*
+---------------------------------------------
+Bathroom
+---------------------------------------------
+*/
+/* 16:9 box */
+.aspect-16x9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* modern browsers */
+  overflow: hidden;
+  background: #f2f2f2;
+}
+.aspect-16x9 img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* fill without distortion */
+  display: block;
+}
+
+/* Fallback for older browsers without aspect-ratio */
+@supports not (aspect-ratio: 16/9) {
+  .aspect-16x9 { padding-top: 56.25%; } /* 9/16 */
+  .aspect-16x9 img { position: absolute; inset: 0; }
+}
+
+/* Card look to match your screenshot */
+.bathroom-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+
+/* Tidy up spacing between items on small screens */
+#bathroom .bathroom-row + .bathroom-row { margin-top: 24px; }
+
+/* Optional: make the outline button slightly rounder */
+#bathroom .btn-outline-primary {
+  border-width: 2px;
+  border-radius: 999px;
+}
+/*
+---------------------------------------------
+Gallery
+---------------------------------------------
+*/
+
+/* Follow Our Projects */
+.projects .section-heading { margin-bottom: 22px; }
+
+.projects-filters { margin: 6px 0 22px; }
+.projects-filters button{
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.projects-filters button:hover { border-color:#bbb; }
+.projects-filters button.is-checked{
+  border-color: #222;
+  background:#222;
+  color:#fff;
+}
+
+/* Grid with Isotope */
+.projects-grid{
+  position: relative;
+  /* creates gutters with the sizer */
+}
+.proj-sizer, .proj-item { width: 100%; }
+@media (min-width: 576px){
+  .proj-sizer, .proj-item { width: 50%; }
+}
+@media (min-width: 992px){
+  .proj-sizer, .proj-item { width: 33.3333%; }
+}
+.proj-item{
+  float: left;                 /* Isotope percentage layout */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.proj-media.aspect-16x9{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(0,0,0,.08);
+  background:#f7f7f7;
+}
+@supports not (aspect-ratio: 16/9){
+  .proj-media.aspect-16x9{ padding-top:56.25%; }
+  .proj-media.aspect-16x9 img{ position:absolute; inset:0; }
+}
+.proj-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1);
+  transition: transform .5s ease;
+}
+
+/* Hover overlay like the reference section */
+.proj-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:16px;
+  color:#fff;
+  background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+.proj-overlay h5{ margin:0 0 2px; font-size:18px; font-weight:600;}
+.proj-overlay span{ font-size:13px; opacity:.9; }
+
+.proj-media:hover img{ transform: scale(1.05); }

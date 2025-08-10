@@ -235,11 +235,11 @@ header
   border-bottom: 3px dotted #eee;
   box-shadow: none;
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
-  z-index: 100;
+  z-index: 1000;
   height: 100px;
   -webkit-transition: all .5s ease 0s;
   -moz-transition: all .5s ease 0s;
@@ -644,16 +644,15 @@ header
 }
 
 
-/* 
+/*
 ---------------------------------------------
 banner
---------------------------------------------- 
+---------------------------------------------
 */
 
 .main-banner {
   border-bottom: 3px dotted #eee;
   padding-top: 105px;
-  padding-bottom: 30px;
 }
 
 .main-banner .left-content .thumb img {
@@ -763,6 +762,328 @@ banner
 
 /*
 ---------------------------------------------
+Kitchen
+---------------------------------------------
+*/
+
+#kitchen {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  border-bottom: 3px dotted #eee;
+}
+
+#kitchen .section-heading {
+  margin-bottom: 60px;
+}
+
+#kitchen .item .down-content {
+  padding-top: 30px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+}
+
+#kitchen .item .down-content h4 {
+  font-size: 22px;
+  color: #2a2a2a;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#kitchen .item .down-content span {
+  font-size: 18px;
+  color: #a1a1a1;
+  font-weight: 500;
+  display: block;
+}
+
+#kitchen .item .down-content ul.stars {
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+
+#kitchen .item .down-content ul.stars li {
+  display: inline;
+  font-size: 13px;
+}
+
+#kitchen .item .thumb .hover-content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  bottom: -60px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s;
+}
+
+#kitchen .item .thumb:hover .hover-content {
+  bottom: 30px;
+  opacity: 1;
+  visibility: visible;
+}
+
+#kitchen .item .thumb {
+  position: relative;
+}
+
+#kitchen .item .thumb .hover-content ul li {
+  display: inline;
+  margin: 0px 10px;
+}
+
+#kitchen .item .thumb .hover-content ul li a {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  color: #2a2a2a;
+  background-color: #fff;
+}
+
+
+#kitchen .owl-nav {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  transform: translateY(-25px);
+}
+
+#kitchen .owl-dots {
+  display: none;
+}
+
+#kitchen .owl-nav .owl-prev{
+  position: absolute;
+  left: -80px;
+  outline: none;
+}
+
+#kitchen .owl-nav .owl-prev span,
+#kitchen .owl-nav .owl-next span {
+  opacity: 0;
+}
+
+#kitchen .owl-nav .owl-prev:before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  color: #2a2a2a;
+  font-size: 25px;
+  font-weight: 700;
+  content: '\f104';
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  line-height: 48px;
+  border :1px solid #2a2a2a;
+}
+
+#kitchen .owl-nav .owl-prev {
+  opacity: 0.75;
+  transition: all .5s;
+}
+
+#kitchen .owl-nav .owl-prev:hover {
+  opacity: 1;
+}
+
+#kitchen .owl-nav .owl-next {
+  opacity: 0.75;
+  transition: all .5s;
+}
+
+#kitchen .owl-nav .owl-next:hover {
+  opacity: 1;
+}
+
+#kitchen .owl-nav .owl-next{
+  outline: none;
+  position: absolute;
+  right: -85px;
+}
+
+#kitchen .owl-nav .owl-next:before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  color: #2a2a2a;
+  font-size: 25px;
+  font-weight: 700;
+  content: '\f105';
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  line-height: 48px;
+  border :1px solid #2a2a2a;
+}
+
+/*
+---------------------------------------------
+Bathroom
+---------------------------------------------
+*/
+
+#bathroom {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  border-bottom: 3px dotted #eee;
+}
+
+#bathroom .section-heading {
+  margin-bottom: 60px;
+}
+
+#bathroom .item .down-content {
+  padding-top: 30px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+}
+
+#bathroom .item .down-content h4 {
+  font-size: 22px;
+  color: #2a2a2a;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#bathroom .item .down-content span {
+  font-size: 18px;
+  color: #a1a1a1;
+  font-weight: 500;
+  display: block;
+}
+
+#bathroom .item .down-content ul.stars {
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+
+#bathroom .item .down-content ul.stars li {
+  display: inline;
+  font-size: 13px;
+}
+
+#bathroom .item .thumb .hover-content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  bottom: -60px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s;
+}
+
+#bathroom .item .thumb:hover .hover-content {
+  bottom: 30px;
+  opacity: 1;
+  visibility: visible;
+}
+
+#bathroom .item .thumb {
+  position: relative;
+}
+
+#bathroom .item .thumb .hover-content ul li {
+  display: inline;
+  margin: 0px 10px;
+}
+
+#bathroom .item .thumb .hover-content ul li a {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  color: #2a2a2a;
+  background-color: #fff;
+}
+
+
+#bathroom .owl-nav {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  transform: translateY(-25px);
+}
+
+#bathroom .owl-dots {
+  display: none;
+}
+
+#bathroom .owl-nav .owl-prev{
+  position: absolute;
+  left: -80px;
+  outline: none;
+}
+
+#bathroom .owl-nav .owl-prev span,
+#bathroom .owl-nav .owl-next span {
+  opacity: 0;
+}
+
+#bathroom .owl-nav .owl-prev:before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  color: #2a2a2a;
+  font-size: 25px;
+  font-weight: 700;
+  content: '\f104';
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  line-height: 48px;
+  border :1px solid #2a2a2a;
+}
+
+#bathroom .owl-nav .owl-prev {
+  opacity: 0.75;
+  transition: all .5s;
+}
+
+#bathroom .owl-nav .owl-prev:hover {
+  opacity: 1;
+}
+
+#bathroom .owl-nav .owl-next {
+  opacity: 0.75;
+  transition: all .5s;
+}
+
+#bathroom .owl-nav .owl-next:hover {
+  opacity: 1;
+}
+
+#bathroom .owl-nav .owl-next{
+  outline: none;
+  position: absolute;
+  right: -85px;
+}
+
+#bathroom .owl-nav .owl-next:before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  color: #2a2a2a;
+  font-size: 25px;
+  font-weight: 700;
+  content: '\f105';
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  line-height: 48px;
+  border :1px solid #2a2a2a;
+}
+
+
+
+/*
+---------------------------------------------
 Men
 ---------------------------------------------
 */
@@ -857,7 +1178,7 @@ Men
 #men .owl-dots {
   display: none;
 }
-    
+
 #men .owl-nav .owl-prev{
   position: absolute;
   left: -80px;
@@ -1018,7 +1339,7 @@ Women
 #women .owl-dots {
   display: none;
 }
-    
+
 #women .owl-nav .owl-prev{
   position: absolute;
   left: -80px;
@@ -1081,6 +1402,7 @@ Women
   line-height: 48px;
   border :1px solid #2a2a2a;
 }
+
 
 /*
 ---------------------------------------------
@@ -1178,7 +1500,7 @@ Kids
 #kids .owl-dots {
   display: none;
 }
-    
+
 #kids .owl-nav .owl-prev{
   position: absolute;
   left: -80px;
@@ -1347,34 +1669,35 @@ Explore
   font-weight: 500;
 }
 
-/* 
+/*
 ---------------------------------------------
-Social
---------------------------------------------- 
+Gallery
+---------------------------------------------
 */
 
-#social {
+#gallery {
   margin-top: 90px;
+  padding-top: 90px;
   padding-bottom: 90px;
   border-bottom: 3px dotted #eee;
 }
 
-#social .col-2 {
+#gallery .col-2 {
   padding-left: 0;
   padding-right: 0;
 }
 
-#social .images {
+#gallery .images {
   margin-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-#social .thumb {
+#gallery .thumb {
   position: relative;
 }
 
-#social .thumb .icon {
+#gallery .thumb .icon {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1387,12 +1710,12 @@ Social
   transition: all .3s;
 }
 
-#social .thumb:hover .icon {
+#gallery .thumb:hover .icon {
   opacity: 1;
   visibility: visible;
 }
 
-#social .thumb .icon h6 {
+#gallery .thumb .icon h6 {
   color: #fff;
   position: absolute;
   font-size: 14px;
@@ -1401,26 +1724,27 @@ Social
   left: 15px;
 }
 
-#social .thumb .icon i {
+#gallery .thumb .icon i {
   color: #fff;
   position: absolute;
   bottom: 15px;
   left: 15px;
 }
 
-#social .thumb img {
+#gallery .thumb img {
   width: 100%;
   overflow: hidden;
 }
 
 
-/* 
+/*
 ---------------------------------------------
 Subscribe
---------------------------------------------- 
+---------------------------------------------
 */
 
 .subscribe {
+ padding-top: 90px;
   margin-top: 90px;
 }
 
@@ -1493,10 +1817,10 @@ Subscribe
 }
 
 
-/* 
+/*
 ---------------------------------------------
 footer
---------------------------------------------- 
+---------------------------------------------
 */
 
 footer {
@@ -1567,10 +1891,10 @@ footer .under-footer a:hover {
 }
 
 
-/* 
+/*
 ---------------------------------------------
 Products Page
---------------------------------------------- 
+---------------------------------------------
 */
 
 .page-heading {
@@ -1719,10 +2043,10 @@ Products Page
 
 
 
-/* 
+/*
 ---------------------------------------------
 Single Product Page
---------------------------------------------- 
+---------------------------------------------
 */
 
 #product {
@@ -1853,7 +2177,7 @@ Single Product Page
 
 .quantity {
   display: inline-block; }
- 
+
  .quantity .input-text.qty {
   width: 35px;
   height: 39px;
@@ -1862,20 +2186,20 @@ Single Product Page
   background-color: transparent;
   border: 1px solid #efefef;
  }
- 
+
  .quantity.buttons_added {
   text-align: left;
   position: relative;
   white-space: nowrap;
   vertical-align: top; }
- 
+
  .quantity.buttons_added input {
   display: inline-block;
   margin: 0;
   vertical-align: top;
   box-shadow: none;
  }
- 
+
  .quantity.buttons_added .minus,
  .quantity.buttons_added .plus {
   padding: 7px 10px 8px;
@@ -1883,33 +2207,33 @@ Single Product Page
   background-color: #ffffff;
   border: 1px solid #efefef;
   cursor:pointer;}
- 
+
  .quantity.buttons_added .minus {
   border-right: 0; }
- 
+
  .quantity.buttons_added .plus {
   border-left: 0; }
- 
+
  .quantity.buttons_added .minus:hover,
  .quantity.buttons_added .plus:hover {
   background: #eeeeee; }
- 
+
  .quantity input::-webkit-outer-spin-button,
  .quantity input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   margin: 0; }
-  
+
   .quantity.buttons_added .minus:focus,
  .quantity.buttons_added .plus:focus {
   outline: none; }
 
 
 
-/* 
+/*
 ---------------------------------------------
 About Us Page
---------------------------------------------- 
+---------------------------------------------
 */
 
 .about-page-heading {
@@ -2133,10 +2457,10 @@ About Us Page
 
 
 
-/* 
+/*
 ---------------------------------------------
 contact Us Page
---------------------------------------------- 
+---------------------------------------------
 */
 
 .contact-us {
@@ -2215,10 +2539,10 @@ contact Us Page
 }
 
 
-/* 
+/*
 ---------------------------------------------
 responsive
---------------------------------------------- 
+---------------------------------------------
 */
 
 @media (max-width: 1200px) {
