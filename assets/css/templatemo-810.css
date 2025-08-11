@@ -311,6 +311,9 @@ service B
     margin-bottom: 60px;
 }
 
+#service-B .outcard{
+    margin-bottom: 30px;
+}
 
 
 /* 16:9 utility (in case you don't have it yet) */
@@ -339,6 +342,7 @@ service B
 }
 #service-B .service-card--tile .service-media
 { border-bottom:1px solid rgba(0,0,0,.05); }
+
 
 
 /*
@@ -428,3 +432,82 @@ Gallery
 .proj-overlay span{ font-size:13px; opacity:.9; }
 
 .proj-media:hover img{ transform: scale(1.05); }
+
+/*
+---------------------------------------------
+Why Choose Edge
+---------------------------------------------
+*/
+#why{
+    padding-top:130px;
+    padding-bottom: 90px;
+    border-bottom: 3px dotted #eee;
+}
+#why .section-heading h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+#why .section-heading {
+    margin-bottom: 60px;
+}
+
+/* Why Choose Edge */
+#why .outcard{
+    margin-bottom: 30px;
+}
+
+.why-edge .why-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  padding:18px 18px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  height:100%;
+}
+.why-edge .why-icon{
+  flex:0 0 42px;
+  width:42px; height:42px;
+  border-radius:999px;
+  background:#222; color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:18px;
+}
+.why-edge .why-line{
+  margin:2px 0 0;
+  font-size:15px;
+  color:#555;
+  line-height:1.45;
+}
+
+
+/*
+---------------------------------------------
+Video
+---------------------------------------------
+*/
+#video{
+    padding-top:130px;
+    padding-bottom: 90px;
+    border-bottom: 3px dotted #eee;
+}
+#video .section-heading h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+#video .section-heading {
+    margin-bottom: 60px;
+}
+
+  .aspect-16x9,
+  .aspect-9x16 { position: relative; width: 100%; overflow: hidden; }
+  .aspect-16x9 { padding-top: 56.25%; }   /* 9 / 16 * 100 */
+  .aspect-9x16 { padding-top: 177.78%; }  /* 16 / 9 * 100 */
+  .aspect-16x9 > iframe,
+  .aspect-9x16 > iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* scale down but keep 16:9 */
+.video-card.narrow { max-width: 520px; margin-inline: auto; }
