@@ -145,3 +145,32 @@ $(window).on('load', function () {
     else $(this).one('load', function(){ $grid.isotope('layout'); });
   });
 });
+
+/*
+---------------------------------------------
+Fade-in base
+---------------------------------------------
+*/
+
+  (function () {
+    // Mark all sections for animation
+    document.querySelectorAll('.section').forEach(s => s.setAttribute('data-animate',''));
+
+    const opts = { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 };
+    const onIntersect = (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(onIntersect, opts);
+      document.querySelectorAll('.section[data-animate], .reveal').forEach(el => io.observe(el));
+    } else {
+      // Fallback: show everything
+      document.querySelectorAll('.section, .reveal').forEach(el => el.classList.add('is-visible'));
+    }
+  })();

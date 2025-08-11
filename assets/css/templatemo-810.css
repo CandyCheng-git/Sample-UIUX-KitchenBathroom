@@ -24,6 +24,8 @@ footer .under-footer ul li a i{
   display:inline-flex; align-items:center; justify-content:center;
 }
 
+
+
 /*
 ---------------------------------------------
 Menu Bar
@@ -409,7 +411,7 @@ Service A
 }
 /*
 ---------------------------------------------
-service B
+Service B
 ---------------------------------------------
 */
 
@@ -631,3 +633,81 @@ Video
 
 /* scale down but keep 16:9 */
 .video-card.narrow { max-width: 520px; margin-inline: auto; }
+
+
+
+/*
+---------------------------------------------
+Others
+---------------------------------------------
+*/
+.email {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal; /* Allows wrapping */
+    overflow-wrap: break-word; /* Breaks long words */
+}
+
+/*
+---------------------------------------------
+Fade-in base
+---------------------------------------------
+*/
+
+/* Fade-in base */
+.section[data-animate], .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s ease, transform .8s ease;
+  will-change: opacity, transform;
+}
+.section.is-visible, .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Optional: stagger common cards inside sections */
+.section.is-visible .outcard,
+.section.is-visible .service-card,
+.section.is-visible .proj-item,
+.section.is-visible .why-card {
+  opacity: 1;
+  transform: none;
+  transition: opacity .8s ease, transform .8s ease;
+}
+.section .outcard,
+.section .service-card,
+.section .proj-item,
+.section .why-card {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Simple nth-child stagger (adjust delays to taste) */
+.section.is-visible .outcard:nth-child(1),
+.section.is-visible .service-card:nth-child(1),
+.section.is-visible .proj-item:nth-child(1),
+.section.is-visible .why-card:nth-child(1) { transition-delay: .05s; }
+.section.is-visible .outcard:nth-child(2),
+.section.is-visible .service-card:nth-child(2),
+.section.is-visible .proj-item:nth-child(2),
+.section.is-visible .why-card:nth-child(2) { transition-delay: .12s; }
+.section.is-visible .outcard:nth-child(3),
+.section.is-visible .service-card:nth-child(3),
+.section.is-visible .proj-item:nth-child(3),
+.section.is-visible .why-card:nth-child(3) { transition-delay: .18s; }
+.section.is-visible .outcard:nth-child(4),
+.section.is-visible .service-card:nth-child(4),
+.section.is-visible .proj-item:nth-child(4),
+.section.is-visible .why-card:nth-child(4) { transition-delay: .24s; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .section[data-animate], .reveal,
+  .section .outcard, .section .service-card, .section .proj-item, .section .why-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
