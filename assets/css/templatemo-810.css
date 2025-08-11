@@ -1,6 +1,122 @@
 /*
 ---------------------------------------------
-home 16:9 Slider (Top of Main Banner)
+icon
+---------------------------------------------
+*/
+
+/* Header (if you add any FA icons there) */
+.header-area i.fa,
+.header-area i[class^="fa"]{
+  background:#99ddcc;
+  color:#000;
+  border-radius:50%;
+  width:32px; height:32px;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+
+/* Footer social icons */
+footer .under-footer ul li a i{
+  background:#99ddcc;
+  color:#000;
+  border-radius:50%;
+  width:36px; height:36px;
+  line-height:36px;      /* for themes using line-height */
+  display:inline-flex; align-items:center; justify-content:center;
+}
+
+/*
+---------------------------------------------
+Menu Bar
+---------------------------------------------
+*/
+.header-area header-sticky{
+    color: #fff;
+}
+/* ==== Header color override (black/white/green) ==== */
+
+/* Base + sticky header backgrounds */
+.header-area,
+.header-area .main-nav,
+.header-area.header-sticky,
+.background-header {
+  background: #000 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+
+/* Top-level links: default white */
+.header-area .main-nav .nav > li > a {
+  color: #fff !important;
+  transition: color .2s ease;
+}
+
+/* Hover/active: green highlight */
+.header-area .main-nav .nav > li > a:hover,
+.header-area .main-nav .nav > li > a.active,
+.background-header .main-nav .nav li a.active,
+.background-header .main-nav .nav li:hover > a {
+  color: #99ddcc !important;
+}
+
+/* Hamburger lines (desktop & sticky) */
+.header-area .main-nav .menu-trigger span,
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after,
+.background-header .main-nav .menu-trigger span,
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #fff !important;
+}
+
+/* Submenu colors (if enabled) */
+.header-area .main-nav .submenu ul {
+  background: #000 !important;
+  border-color: #222 !important;
+}
+.header-area .main-nav .submenu li a {
+  color: #fff !important;
+  background: #000 !important;
+}
+.header-area .main-nav .submenu li a:hover {
+  color: #99ddcc !important;
+}
+
+/* Mobile menu overrides */
+@media (max-width: 767px) {
+  .header-area {
+    background: #000 !important;
+  }
+  .header-area .main-nav .nav {
+    background: #000 !important;
+  }
+  .header-area .main-nav .nav li {
+    background: #000 !important;
+    border-bottom: 1px solid #222 !important;
+  }
+  .header-area .main-nav .nav li a {
+    color: #fff !important;
+    background: #000 !important;
+  }
+  .header-area .main-nav .nav li a:hover,
+  .header-area .main-nav .nav li a.active {
+    color: #99ddcc !important;
+  }
+  /* Mobile submenu */
+  .header-area .main-nav .nav li.submenu ul {
+    background: #000 !important;
+  }
+  .header-area .main-nav .nav li.submenu ul li a {
+    color: #fff !important;
+  }
+  .header-area .main-nav .nav li.submenu ul li a:hover {
+    color: #99ddcc !important;
+  }
+}
+
+/* (Tiny fix) Correct selector typo if used elsewhere */
+.header-area.header-sticky { color: #fff; }
+/*
+---------------------------------------------
+Home 16:9 Slider (Top of Main Banner)
 ---------------------------------------------
 */
 #home{
@@ -172,7 +288,7 @@ Client Comments
 #comment{
     padding-top:130px;
     padding-bottom: 90px;
-    border-bottom: 3px dotted #eee;
+    border-bottom: 3px dotted #99ddcc;
 }
 
 /* Testimonials */
@@ -232,7 +348,7 @@ Service A
 #service{
     padding-top:130px;
     padding-bottom: 90px;
-    border-bottom: 3px dotted #eee;
+    border-bottom: 3px dotted #99ddcc;
 }
 #service .section-heading h2 {
   font-size: 34px;
@@ -300,7 +416,7 @@ service B
 #service-B{
     padding-top:130px;
     padding-bottom: 90px;
-    border-bottom: 3px dotted #eee;
+    border-bottom: 3px dotted #99ddcc;
 }
 #service-B .section-heading h2 {
   font-size: 34px;
@@ -353,7 +469,7 @@ Gallery
 #gallery{
     padding-top:130px;
     padding-bottom: 90px;
-    border-bottom: 3px dotted #eee;
+    border-bottom: 3px dotted #99ddcc;
 }
 /* Follow Our Projects */
 .projects .section-heading { margin-bottom: 22px; }
@@ -371,8 +487,8 @@ Gallery
 .projects-filters button:hover { border-color:#bbb; }
 .projects-filters button.is-checked{
   border-color: #222;
-  background:#222;
-  color:#fff;
+  background:#99ddcc;
+  color:#222;
 }
 
 /* Grid with Isotope */
@@ -441,7 +557,7 @@ Why Choose Edge
 #why{
     padding-top:130px;
     padding-bottom: 90px;
-    border-bottom: 3px dotted #eee;
+    border-bottom: 3px dotted #99ddcc;
 }
 #why .section-heading h2 {
   font-size: 34px;
@@ -471,9 +587,10 @@ Why Choose Edge
   flex:0 0 42px;
   width:42px; height:42px;
   border-radius:999px;
-  background:#222; color:#fff;
   display:inline-flex; align-items:center; justify-content:center;
   font-size:18px;
+  background:#99ddcc;   /* green background */
+  color:#000;           /* dark icon for contrast */
 }
 .why-edge .why-line{
   margin:2px 0 0;
@@ -491,7 +608,7 @@ Video
 #video{
     padding-top:130px;
     padding-bottom: 90px;
-    border-bottom: 3px dotted #eee;
+    border-bottom: 3px dotted #99ddcc;
 }
 #video .section-heading h2 {
   font-size: 34px;
