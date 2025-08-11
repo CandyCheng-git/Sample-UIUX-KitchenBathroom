@@ -501,6 +501,9 @@ Video
 #video .section-heading {
     margin-bottom: 60px;
 }
+#video .video-card {
+    margin-bottom: 60px;
+}
 
   .aspect-16x9,
   .aspect-9x16 { position: relative; width: 100%; overflow: hidden; }
