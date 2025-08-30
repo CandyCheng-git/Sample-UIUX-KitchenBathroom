@@ -552,6 +552,16 @@ Gallery
   position: relative;
   /* creates gutters with the sizer */
 }
+/* Force project thumbnails to render on all browsers (prod-safe) */
+.projects-grid .proj-media img{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
 .proj-sizer, .proj-item { width: 100%; }
 @media (min-width: 576px){
   .proj-sizer, .proj-item { width: 50%; }
