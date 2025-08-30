@@ -1,29 +1,21 @@
 ---
 deployment:
   tasks:
-    # 1) Set paths (adjust DOCROOT if you use an addon/subdomain)
+    # Change DOCROOT if your site lives somewhere else
     - export DOCROOT="$HOME/public_html"
     - export REPOPATH="$HOME/repositories/EdgeKitchensAndBathrooms"
 
-    # 2) Log some context (visible in Deployment History)
-    - echo "Deploying from: $REPOPATH"
-    - echo "Deploying to  : $DOCROOT"
-    - date
-
-    # 3) Ensure target exists
+    - echo "Deploying from $REPOPATH to $DOCROOT"
     - /bin/mkdir -p "$DOCROOT"
 
-    # 4) Copy files (keep repo → live in sync)
-    #    Try /usr/bin/rsync first (typical), fall back to /bin/rsync
-    - export RSYNC_BIN=$([ -x /usr/bin/rsync ] && echo /usr/bin/rsync || echo /bin/rsync)
-    - $RSYNC_BIN -av --delete \
+    # Copy repo → web root
+    - /usr/bin/rsync -av --delete \
       --exclude='.git' \
       --exclude='.cpanel.yml' \
       "$REPOPATH"/ "$DOCROOT"/
 
-    # 5) Optional—but helps avoid permission quirks on some hosts
+    # Safe perms (prevents blank page on some hosts)
     - /bin/find "$DOCROOT" -type d -exec /bin/chmod 755 {} \;
     - /bin/find "$DOCROOT" -type f -exec /bin/chmod 644 {} \;
 
-    # 6) Final log line
     - echo "Deploy complete."
