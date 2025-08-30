@@ -2,19 +2,13 @@
 deployment:
   tasks:
     - export DOCROOT="/home/edgekitc/public_html"
-    - export REPOPATH="/home/edgekitc/repositories/EdgeKitchensAndBathrooms"
-
-    - echo "Deploying from $REPOPATH to $DOCROOT"
     - /bin/mkdir -p "$DOCROOT"
-
-    # Sync repo → live site (keeps deletions in sync)
-    - /usr/bin/rsync -av --delete \
+    # IMPORTANT: cPanel runs these tasks from the repo root.
+    # So copy from "./" (not the repositories path) to your docroot.
+    - /bin/rsync -av --delete \
       --exclude='.git' \
       --exclude='.cpanel.yml' \
-      "$REPOPATH"/ "$DOCROOT"/
-
-    # Friendly permissions
+      ./ "$DOCROOT"/
+    # Optional but safe perms
     - /bin/find "$DOCROOT" -type d -exec /bin/chmod 755 {} \;
     - /bin/find "$DOCROOT" -type f -exec /bin/chmod 644 {} \;
-
-    - echo "Deploy complete."
