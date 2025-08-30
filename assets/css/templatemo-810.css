@@ -670,6 +670,94 @@ Video
 .video-card.narrow { max-width: 520px; margin-inline: auto; }
 
 
+/*
+---------------------------------------------
+FAQ
+---------------------------------------------
+*/
+/* --- FAQ Section --- */
+#faqs .container{
+    max-width: 800px;
+}
+
+
+.section-faqs {
+  background: #E8E2D7;
+  padding: 72px 20px;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+  color: #9B846C;
+  margin-bottom: 32px;
+}
+
+/* FAQ Items */
+.faq-item {
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+/* Question button */
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2B1E16;
+}
+
+.faq-question:focus {
+  outline: none;
+}
+
+.faq-toggle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #9B846C;
+}
+
+/* Answer hidden initially */
+.faq-answer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  color: #3f352d;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.3s ease;
+}
+
+/* Active state (expand with fade) */
+.faq-item.active .faq-answer {
+  max-height: 300px;    /* adjust if answers are longer */
+  opacity: 1;
+  padding: 12px 20px 16px;
+}
+
+.faq-item.active .faq-toggle {
+  content: "×";
+  transform: rotate(45deg);
+  font-size: 26px;
+}
+
+
+
+
+
 
 /*
 ---------------------------------------------

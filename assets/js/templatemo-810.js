@@ -148,6 +148,34 @@ $(window).on('load', function () {
 
 /*
 ---------------------------------------------
+FAQ
+---------------------------------------------
+*/
+document.addEventListener("DOMContentLoaded", function() {
+  const faqs = document.querySelectorAll(".faq-item");
+
+  faqs.forEach(item => {
+    const question = item.querySelector(".faq-question");
+    const toggle = item.querySelector(".faq-toggle");
+
+    question.addEventListener("click", () => {
+      // Close all others
+      faqs.forEach(f => {
+        if (f !== item) {
+          f.classList.remove("active");
+          f.querySelector(".faq-toggle").textContent = "+";
+        }
+      });
+
+      // Toggle current
+      item.classList.toggle("active");
+      toggle.textContent = item.classList.contains("active") ? "×" : "+";
+    });
+  });
+});
+
+/*
+---------------------------------------------
 Fade-in base
 ---------------------------------------------
 */

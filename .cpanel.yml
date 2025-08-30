@@ -1,11 +1,19 @@
 deployment:
   tasks:
+    # --- set target ---
     - export DOCROOT="/home/edgekitc/public_html"
+
+    # --- ensure target exists ---
     - /bin/mkdir -p "$DOCROOT"
-    - /bin/rsync -av --delete \
-      --exclude='.git' \
-      --exclude='.cpanel.yml' \
-      ./ "$DOCROOT"/
+
+    # --- write a marker so we can confirm deployment ran ---
+    - /bin/date > "$DOCROOT/DEPLOY_OK.txt"
+
+    # --- copy EVERYTHING from the repo checkout (.) to docroot ---
+    # use cp -a (works on all cPanel hosts)
+    - /bin/rm -rf "$DOCROOT"/*
+    - /bin/cp -a ./ "$DOCROOT"/
+
+    # --- safe perms (prevents blank pages on some hosts) ---
     - /bin/find "$DOCROOT" -type d -exec /bin/chmod 755 {} \;
     - /bin/find "$DOCROOT" -type f -exec /bin/chmod 644 {} \;
-    - echo "Deploy complete."
