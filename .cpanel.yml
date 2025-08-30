@@ -1,20 +1,19 @@
 ---
 deployment:
   tasks:
-    # Change DOCROOT if your site lives somewhere else
-    - export DOCROOT="$HOME/public_html"
-    - export REPOPATH="$HOME/repositories/EdgeKitchensAndBathrooms"
+    - export DOCROOT="/home/edgekitc/public_html"
+    - export REPOPATH="/home/edgekitc/repositories/EdgeKitchensAndBathrooms"
 
     - echo "Deploying from $REPOPATH to $DOCROOT"
     - /bin/mkdir -p "$DOCROOT"
 
-    # Copy repo → web root
+    # Sync repo → live site (keeps deletions in sync)
     - /usr/bin/rsync -av --delete \
       --exclude='.git' \
       --exclude='.cpanel.yml' \
       "$REPOPATH"/ "$DOCROOT"/
 
-    # Safe perms (prevents blank page on some hosts)
+    # Friendly permissions
     - /bin/find "$DOCROOT" -type d -exec /bin/chmod 755 {} \;
     - /bin/find "$DOCROOT" -type f -exec /bin/chmod 644 {} \;
 
