@@ -442,14 +442,20 @@ Our Process
   padding: 72px 0;
 }
 
-.section-process .eyebrow {
-  display: inline-block;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-  color: #9B846C;
-  margin-bottom: 10px;
+#process .section-heading{
+  line-height: 1.1;
+  font-weight: 800;
+  color: #2B1E16;                 /* deep brown */
+}
+
+#process .section-heading span{
+    display: inline-block;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    color: #9B846C;
+    margin-bottom: 10px;
 }
 
 .section-process .process-title {
@@ -572,13 +578,26 @@ Gallery
   .proj-media.aspect-16x9{ padding-top:56.25%; }
   .proj-media.aspect-16x9 img{ position:absolute; inset:0; }
 }
+
+
+/* Ensure preview images fill the 16:9 box on all browsers */
+.proj-media {
+  position: relative;   /* already set, safe to repeat */
+  overflow: hidden;
+}
+
 .proj-media img{
+  position: absolute;   /* <-- key: always absolute */
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display:block;
-  transform: scale(1);
-  transition: transform .5s ease;
+  display: block;
+  transition: transform 1.2s ease-in-out;  /* slower, smoother */
+}
+
+.proj-media:hover img {
+  transform: scale(1.05);
 }
 
 /* Hover overlay like the reference section */
@@ -697,11 +716,12 @@ FAQ
   padding: 72px 20px;
 }
 
-.faq-title {
+#faqs .faq-title{
   text-align: center;
-  font-size: 40px;
+  line-height: 1.1;
   font-weight: 800;
-  color: #9B846C;
+  color: #2B1E16;                 /* deep brown */
+
   margin-bottom: 32px;
 }
 
