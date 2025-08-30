@@ -100,15 +100,21 @@ Menu Bar
   }
   .header-area .main-nav .nav li a:hover,
   .header-area .main-nav .nav li a.active {
-    color: #99ddcc !important;
+    color: #fff !important;
   }
   /* Mobile submenu */
   .header-area .main-nav .nav li.submenu ul {
     background: #000 !important;
   }
-  .header-area .main-nav .nav li.submenu ul li a {
+  .header-area .main-nav .nav li.submenu > a {
     color: #fff !important;
   }
+
+  .header-area .main-nav .nav li.submenu ul li a {
+    color: #fff !important;
+    background: #000 !important;  /* keep dropdown dark */
+  }
+
   .header-area .main-nav .nav li.submenu ul li a:hover {
     color: #99ddcc !important;
   }
@@ -426,6 +432,11 @@ Service
 Our Process
 ---------------------------------------------
 */
+#process .container{
+    max-width: 900px;
+    margin: auto;
+}
+
 .section-process {
   background: #E8E2D7;          /* soft beige to match Service section */
   padding: 72px 0;
