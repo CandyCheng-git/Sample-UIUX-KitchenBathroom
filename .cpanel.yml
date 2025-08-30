@@ -1,17 +1,7 @@
----
 deployment:
   tasks:
     - export DOCROOT="/home/edgekitc/public_html"
     - /bin/mkdir -p "$DOCROOT"
-
-    # Copy FROM the current repo checkout (./) TO your docroot
-    - /usr/bin/rsync -av --delete \
-      --exclude='.git' \
-      --exclude='.cpanel.yml' \
-      ./ "$DOCROOT"/
-
-    # Optional safe perms
+    - /bin/rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' ./ "$DOCROOT"/
     - /bin/find "$DOCROOT" -type d -exec /bin/chmod 755 {} \;
     - /bin/find "$DOCROOT" -type f -exec /bin/chmod 644 {} \;
-
-    - echo "Deploy complete."
