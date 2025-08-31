@@ -1,0 +1,110 @@
+/*
+---------------------------------------------
+Gallery
+---------------------------------------------
+*/
+#gallery{
+    padding-top:130px;
+    padding-bottom: 90px;
+    min-height:900px;
+}
+/* Follow Our Projects */
+.projects .section-heading { margin-bottom: 22px; }
+
+.projects-filters { margin: 6px 0 22px; }
+.projects-filters button{
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.projects-filters button:hover { border-color:#bbb; }
+.projects-filters button.is-checked{
+  border-color: #222;
+  background:#99ddcc;
+  color:#222;
+}
+
+/* Grid with Isotope */
+.projects-grid{
+  position: relative;
+  /* creates gutters with the sizer */
+}
+/* Force project thumbnails to render on all browsers (prod-safe) */
+.projects-grid .proj-media img{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.proj-sizer, .proj-item { width: 100%; }
+@media (min-width: 576px){
+  .proj-sizer, .proj-item { width: 50%; }
+}
+@media (min-width: 992px){
+  .proj-sizer, .proj-item { width: 33.3333%; }
+}
+.proj-item{
+  float: left;                 /* Isotope percentage layout */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.proj-media.aspect-16x9{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(0,0,0,.08);
+  background:#f7f7f7;
+}
+@supports not (aspect-ratio: 16/9){
+  .proj-media.aspect-16x9{ padding-top:56.25%; }
+  .proj-media.aspect-16x9 img{ position:absolute; inset:0; }
+}
+
+
+/* Ensure preview images fill the 16:9 box on all browsers */
+.proj-media {
+  position: relative;   /* already set, safe to repeat */
+  overflow: hidden;
+}
+
+.proj-media img{
+  position: absolute;   /* <-- key: always absolute */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s ease-in-out;  /* slower, smoother */
+}
+
+.proj-media:hover img {
+  transform: scale(1.05);
+}
+
+/* Hover overlay like the reference section */
+.proj-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:16px;
+  color:#fff;
+  background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+.proj-overlay h5{ margin:0 0 2px; font-size:18px; font-weight:600;}
+.proj-overlay span{ font-size:13px; opacity:.9; }
+
+.proj-media:hover img{ transform: scale(1.05); }

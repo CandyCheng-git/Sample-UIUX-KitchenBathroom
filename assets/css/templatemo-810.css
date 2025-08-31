@@ -14,6 +14,12 @@ icon
   display:inline-flex; align-items:center; justify-content:center;
 }
 
+/*
+---------------------------------------------
+Footer
+---------------------------------------------
+*/
+
 /* Footer social icons */
 footer .under-footer ul li a i{
   background:#99ddcc;
@@ -24,6 +30,26 @@ footer .under-footer ul li a i{
   display:inline-flex; align-items:center; justify-content:center;
 }
 
+/* Make page full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Let main content grow to fill space */
+body > *:not(footer) {
+  flex: 1 0 auto;
+}
+
+/* Footer sticks to bottom */
+footer {
+  flex-shrink: 0;
+  background: #222;   /* keep your footer background */
+  color: #fff;
+  padding: 30px 0;
+}
 
 
 /*
@@ -327,6 +353,22 @@ Client Comments
     font-size: 14px;
     color: #999;
 }
+
+#comment .btn {
+  background-color: #2a9d8f;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+#comment .btn:hover {
+  background-color: #21867a;
+}
+
+
 /*
 ---------------------------------------------
 Kitchen
@@ -516,117 +558,269 @@ Our Process
   .process-num { margin-bottom: 10px; }
 }
 
-
-
 /*
 ---------------------------------------------
 Gallery
 ---------------------------------------------
 */
-#gallery{
-    padding-top:130px;
-    padding-bottom: 90px;
-}
-/* Follow Our Projects */
-.projects .section-heading { margin-bottom: 22px; }
-
-.projects-filters { margin: 6px 0 22px; }
-.projects-filters button{
-  border: 1px solid #ddd;
-  background: #fff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.projects-filters button:hover { border-color:#bbb; }
-.projects-filters button.is-checked{
-  border-color: #222;
-  background:#99ddcc;
-  color:#222;
-}
-
-/* Grid with Isotope */
-.projects-grid{
-  position: relative;
-  /* creates gutters with the sizer */
-}
-/* Force project thumbnails to render on all browsers (prod-safe) */
-.projects-grid .proj-media img{
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-
-.proj-sizer, .proj-item { width: 100%; }
-@media (min-width: 576px){
-  .proj-sizer, .proj-item { width: 50%; }
-}
-@media (min-width: 992px){
-  .proj-sizer, .proj-item { width: 33.3333%; }
-}
-.proj-item{
-  float: left;                 /* Isotope percentage layout */
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.proj-media.aspect-16x9{
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+/* ---------------- Gallery Slide ---------------- */
+#gallery .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;     /* default: images align at top */
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 26px rgba(0,0,0,.08);
-  background:#f7f7f7;
-}
-@supports not (aspect-ratio: 16/9){
-  .proj-media.aspect-16x9{ padding-top:56.25%; }
-  .proj-media.aspect-16x9 img{ position:absolute; inset:0; }
+  position: relative;
 }
 
-
-/* Ensure preview images fill the 16:9 box on all browsers */
-.proj-media {
-  position: relative;   /* already set, safe to repeat */
-  overflow: hidden;
-}
-
-.proj-media img{
-  position: absolute;   /* <-- key: always absolute */
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* ---------------- Gallery Images ---------------- */
+#gallery .swiper-slide img {
+  max-width: 100%;
+  max-height: 80vh;            /* avoid overflowing screen height */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  object-fit: contain;
+  object-position: center;
   display: block;
-  transition: transform 1.2s ease-in-out;  /* slower, smoother */
+  margin: 0 auto;
 }
 
-.proj-media:hover img {
-  transform: scale(1.05);
+/* ---------------- Landscape-specific tweak ---------------- */
+/* Aspect ratio > 1 means landscape */
+#gallery .swiper-slide img:is(:where(:not(:first-child))) {}
+
+/* Modern CSS way */
+#gallery .swiper-slide img {
+  aspect-ratio: attr(width) / attr(height);
 }
 
-/* Hover overlay like the reference section */
-.proj-overlay{
-  position:absolute;
-  inset:0;
+@media screen {
+  /* For landscape images, push them down */
+  #gallery .swiper-slide img.landscape {
+    margin-top: 30%;
+  }
+}
+
+/* ---------------- Swiper Navigation Arrows ---------------- */
+#gallery .swiper-button-next,
+#gallery .swiper-button-prev {
+  color: #2a9d8f;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#gallery .swiper-button-next::after,
+#gallery .swiper-button-prev::after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ---------------- Swiper Pagination Dots ---------------- */
+#gallery .swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+}
+#gallery .swiper-pagination-bullet-active {
+  background: #2a9d8f;
+}
+
+/* ---------------- Read More Button ---------------- */
+#gallery .btn {
+  background-color: #2a9d8f;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+#gallery .btn:hover {
+  background-color: #21867a;
+}
+
+
+
+/*
+---------------------------------------------
+Video
+---------------------------------------------
+*/
+#video{
+  padding-top:130px;
+  padding-bottom:90px;
+  position: relative; /* anchor for absolute children if needed */
+}
+#video .section-heading h2{
+  font-size:34px;
+  font-weight:700;
+  color:#2a2a2a;
+}
+#video .section-heading{ margin-bottom:60px; }
+
+/* ---------------- Scroll rail + row ---------------- */
+#video .video-rail{
+  position: relative;         /* anchors the buttons */
+}
+
+/* Mobile/tablet: horizontal scroll with space for arrows */
+#video .video-scroll{
+  display:flex;
+  gap:1rem;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+
+  /* Reserve space for the outside arrows so they don't overlap cards */
+  /* 48px button + small gap ≈ 3.25–3.5rem on each side */
+  padding-inline: clamp(2.75rem, 7vw, 3.5rem);
+
+  /* remove edge-to-edge negative margins so arrows stay visible */
+  margin-inline: 0;
+  padding-bottom:.5rem;       /* avoid scrollbar overlay */
+}
+
+/* Hide scrollbar (optional) */
+#video .video-scroll::-webkit-scrollbar{ display:none; }
+#video .video-scroll{ scrollbar-width:none; }
+
+/* ---------------- Cards ---------------- */
+#video .video-scroll .video-card{
+  flex:0 0 auto;              /* no shrink */
+  /* narrower cards so arrows fit and peek of next card shows */
+  width: clamp(62%, 72vw, 72%);
+  max-width: 300px;
+  min-width: 240px;
+  scroll-snap-align:start;
+}
+
+#video .video-card{
   display:flex;
   flex-direction:column;
-  justify-content:flex-end;
-  padding:16px;
-  color:#fff;
-  background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
-  opacity: 1;
-  transition: opacity .3s ease;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  margin-bottom:0;            /* spacing handled by gap */
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
-.proj-overlay h5{ margin:0 0 2px; font-size:18px; font-weight:600;}
-.proj-overlay span{ font-size:13px; opacity:.9; }
 
-.proj-media:hover img{ transform: scale(1.05); }
+/* Instagram embed responsiveness */
+#video .ig-wrap{
+  width:100%;
+  aspect-ratio:9/16;          /* default for Reels; override per card if needed */
+  display:flex;
+}
+#video .instagram-media{
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;     /* kill 326px min */
+  margin:0 auto !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* (Optional) iframe helpers if you ever use iframes */
+.aspect-16x9,.aspect-9x16{ position:relative;width:100%;overflow:hidden; }
+.aspect-16x9{ padding-top:56.25%; }
+.aspect-9x16{ padding-top:177.78%; }
+.aspect-16x9>iframe,.aspect-9x16>iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+}
+
+/* ---------------- Arrows (tablet/mobile only) ---------------- */
+#video .video-btn{
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  width:48px; height:48px; border-radius:50%;
+  border:0; cursor:pointer; z-index:10;
+  background:rgba(0,0,0,.6); color:#fff; font-size:28px;
+  display:none;               /* shown in media query below */
+  box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+#video .video-btn.prev{ left: .5rem; }   /* sits in the reserved padding */
+#video .video-btn.next{ right:.5rem; }
+
+#video .video-btn:hover{ background:rgba(0,0,0,.8); }
+#video .video-btn:disabled{ opacity:.4; cursor:not-allowed; }
+#video .video-btn:focus-visible{ outline:2px solid #4da3ff; outline-offset:2px; }
+
+/* Show buttons only on tablet/mobile */
+@media (max-width: 991.98px){
+  #video .video-btn{
+    display:flex; align-items:center; justify-content:center;
+  }
+}
+
+/* Drag-to-scroll affordance */
+#video .video-scroll{ cursor:grab; }
+#video .video-scroll.dragging{
+  cursor:grabbing; user-select:none; -webkit-user-select:none;
+}
+
+/* Desktop (≥992px): 4-up grid, hide arrows, remove padding */
+@media (min-width: 992px){
+  #video .video-scroll{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.5rem;
+    overflow:visible;
+    padding-inline:0;
+    padding-bottom:0;
+  }
+  #video .video-scroll .video-card{
+    width:auto; max-width:none; min-width:0;
+    scroll-snap-align:unset;
+  }
+  #video .video-btn{ display:none !important; }
+}
+
+/* Tiny screens: slightly smaller heading */
+@media (max-width: 575.98px){
+  #video .section-heading h2{ font-size:28px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  #video .video-scroll{ scroll-behavior:auto; }
+}
+
+/* Reset list style */
+#video .section-heading ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;       /* spacing from heading */
+  display: flex;
+  justify-content: center;
+  gap: 20px;              /* space between icons */
+}
+
+/* Each list item */
+#video .section-heading ul li {
+  display: inline-block;
+}
+
+/* Anchor link wrapping the icon */
+#video .section-heading ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;              /* circle */
+  background-color: #8fd5c3;       /* mint/green background */
+  color: #000;                     /* icon color */
+  font-size: 22px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+#video .section-heading ul li a:hover {
+  background-color: #2a9d8f;       /* darker brand color */
+  color: #fff;                     /* white icon on hover */
+}
+
+
 
 /*
 ---------------------------------------------
@@ -678,36 +872,6 @@ Why Choose Edge
 }
 
 
-/*
----------------------------------------------
-Video
----------------------------------------------
-*/
-#video{
-    padding-top:130px;
-    padding-bottom: 90px;
-}
-#video .section-heading h2 {
-  font-size: 34px;
-  font-weight: 700;
-  color: #2a2a2a;
-}
-#video .section-heading {
-    margin-bottom: 60px;
-}
-#video .video-card {
-    margin-bottom: 60px;
-}
-
-  .aspect-16x9,
-  .aspect-9x16 { position: relative; width: 100%; overflow: hidden; }
-  .aspect-16x9 { padding-top: 56.25%; }   /* 9 / 16 * 100 */
-  .aspect-9x16 { padding-top: 177.78%; }  /* 16 / 9 * 100 */
-  .aspect-16x9 > iframe,
-  .aspect-9x16 > iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-
-/* scale down but keep 16:9 */
-.video-card.narrow { max-width: 520px; margin-inline: auto; }
 
 
 /*

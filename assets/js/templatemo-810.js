@@ -97,7 +97,7 @@
 
 /*
 ---------------------------------------------
-service A
+Service
 ---------------------------------------------
 */
 // service carousel (16:9, no inner scroll, stable height)
@@ -123,27 +123,117 @@ Gallery
 ---------------------------------------------
 */
 
-// ---- Projects grid (Isotope + Lightbox) ----
-$(window).on('load', function () {
-  var $grid = $('#project-grid').isotope({
-    itemSelector: '.proj-item',
-    percentPosition: true,
-    masonry: { columnWidth: '.proj-sizer', gutter: 0 }
+  document.addEventListener("DOMContentLoaded", () => {
+    new Swiper(".gallery-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        992: { slidesPerView: 3 }
+      }
+    });
   });
 
-  // filter buttons
-  $('.projects-filters').on('click', 'button', function(){
-    var filterValue = $(this).attr('data-filter');
-    $grid.isotope({ filter: filterValue });
-    $('.projects-filters button').removeClass('is-checked');
-    $(this).addClass('is-checked');
+/*
+---------------------------------------------
+Video
+---------------------------------------------
+*/
+document.addEventListener('DOMContentLoaded', () => {
+  const wrap   = document.querySelector('#video .video-scroll');
+  const btnPrev = document.querySelector('#video .video-btn.prev');
+  const btnNext = document.querySelector('#video .video-btn.next');
+  if (!wrap || !btnPrev || !btnNext) return;
+
+  // -------- Drag-to-scroll (pointer events)
+  let isDown = false, startX = 0, startLeft = 0, moved = 0;
+
+  const stopDrag = (e) => {
+    if (!isDown) return;
+    isDown = false;
+    wrap.classList.remove('dragging');
+    try { e.pointerId && wrap.releasePointerCapture(e.pointerId); } catch {}
+    // Snap gently to the nearest card edge after drag
+    snapToCard();
+  };
+
+  wrap.addEventListener('pointerdown', e => {
+    isDown = true; moved = 0;
+    startX = e.clientX; startLeft = wrap.scrollLeft;
+    wrap.classList.add('dragging');
+    try { wrap.setPointerCapture(e.pointerId); } catch {}
+    e.preventDefault();
   });
 
-  // re-layout after each image loads (keeps rows tidy)
-  $('#project-grid img').each(function(){
-    if (this.complete) $grid.isotope('layout');
-    else $(this).one('load', function(){ $grid.isotope('layout'); });
+  wrap.addEventListener('pointermove', e => {
+    if (!isDown) return;
+    const dx = e.clientX - startX; moved += Math.abs(dx);
+    wrap.scrollLeft = startLeft - dx;
+    updateButtons();
   });
+
+  wrap.addEventListener('pointerup', stopDrag);
+  wrap.addEventListener('pointercancel', stopDrag);
+  wrap.addEventListener('pointerleave', stopDrag);
+
+  // Prevent clicks after a drag
+  wrap.addEventListener('click', e => {
+    if (moved > 5) e.preventDefault();
+    moved = 0;
+  }, true);
+
+  // -------- Arrow buttons
+  function getGapPx() {
+    const gap = getComputedStyle(wrap).gap || '0px';
+    return parseFloat(gap) || 0;
+  }
+  function getCardWidth() {
+    const card = wrap.querySelector('.video-card');
+    if (!card) return 300;
+    return card.getBoundingClientRect().width + getGapPx();
+  }
+  function scrollByCards(n = 1) {
+    const step = getCardWidth() * n;
+    wrap.scrollBy({ left: step, behavior: 'smooth' });
+    // defer button update slightly to let smooth scroll begin
+    setTimeout(updateButtons, 50);
+  }
+  btnPrev.addEventListener('click', () => scrollByCards(-1));
+  btnNext.addEventListener('click', () => scrollByCards(+1));
+
+  // Snap to nearest card (for a clean stop after drag)
+  let snapTimer;
+  function snapToCard() {
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(() => {
+      const step = getCardWidth();
+      const pos  = wrap.scrollLeft;
+      const idx  = Math.round(pos / step);
+      const target = idx * step;
+      wrap.scrollTo({ left: target, behavior: 'smooth' });
+      updateButtons();
+    }, 10);
+  }
+
+  // -------- Enable/disable buttons at edges
+  function updateButtons() {
+    const max = wrap.scrollWidth - wrap.clientWidth - 1; // tolerance
+    btnPrev.disabled = wrap.scrollLeft <= 1;
+    btnNext.disabled = wrap.scrollLeft >= max;
+  }
+
+  // Update on scroll/resize/content changes
+  wrap.addEventListener('scroll', () => { requestAnimationFrame(updateButtons); });
+  window.addEventListener('resize', () => { requestAnimationFrame(updateButtons); });
+
+  // In case embeds change sizes after load
+  setTimeout(updateButtons, 400);
+  updateButtons();
 });
 
 /*
