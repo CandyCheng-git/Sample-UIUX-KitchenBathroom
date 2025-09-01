@@ -988,7 +988,27 @@ FAQ
 }
 
 
+/*
+---------------------------------------------
+Notes
+---------------------------------------------
+*/
+/* --- FAQ Section --- */
+#notes .container{
+    max-width: 800px;
+}
 
+
+#notes .section-faqs {
+  background: #E8E2D7;
+  padding: 72px 20px;
+}
+
+#notes .title{
+  text-align: center;
+  line-height: 1.1;
+  color: #2B1E16;                 /* deep brown */
+}
 
 
 
