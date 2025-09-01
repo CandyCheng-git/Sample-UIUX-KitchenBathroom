@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
     <!-- 810 CSS Files -->
-    <link rel="stylesheet" href="assets/css/templatemo-810.css?v=3">
+    <link rel="stylesheet" href="assets/css/templatemo-810.css?v=7">
 
     <!-- Project CSS Files -->
     <link rel="stylesheet" href="assets/css/project.css">
@@ -286,28 +286,8 @@
 <script src="assets/js/isotope.js"></script>
 
 <!-- Global Init -->
-<script src="assets/js/custom.js"></script>
+<script src="assets/js/templatemo-810.js?v=7"></script>
 
-<script>
-
-    $(function() {
-        var selectedClass = "";
-        $("p").click(function(){
-        selectedClass = $(this).attr("data-rel");
-        $("#portfolio").fadeTo(50, 0.1);
-            $("#portfolio div").not("."+selectedClass).fadeOut();
-        setTimeout(function() {
-          $("."+selectedClass).fadeIn();
-          $("#portfolio").fadeTo(50, 1);
-        }, 500);
-
-        });
-    });
-
-</script>
-
-<!-- 810 JS -->
-<script src="assets/js/templatemo-810.js"></script>
 <!-- Project JS -->
 <script src="assets/js/project.js"></script>
 

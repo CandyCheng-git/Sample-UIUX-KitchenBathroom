@@ -91,10 +91,10 @@
     <!-- ***** Menu Bar - Header Area End ***** -->
 
     <!-- ***** Home 16:9 Slider (Top of Main Banner) Start ***** -->
-    <section class="ekb-home" id="home">
-        <div class="ekb-home__track">
+    <section class="ekb-home" id="home" aria-roledescription="carousel" aria-label="Home showcases">
+        <div class="ekb-home__track" role="group" aria-live="polite">
             <!-- Slide 1 -->
-            <figure class="ekb-home__slide is-active" aria-roledescription="slide">
+            <figure class="ekb-home__slide is-active" aria-roledescription="slide" aria-label="1 of 3">
                 <img src="assets/images/banner_1.jpeg" alt="Showcase 1" loading="eager" />
                 <figcaption class="ekb-home__caption">
                     <h2>Custom Kitchens &amp; Bathrooms</h2>
@@ -102,7 +102,7 @@
                 </figcaption>
             </figure>
             <!-- Slide 2 -->
-            <figure class="ekb-home__slide" aria-roledescription="slide">
+            <figure class="ekb-home__slide" aria-roledescription="slide" aria-label="2 of 3">
                 <img src="assets/images/Other/kitchen/3.jpg" alt="Showcase 2" loading="lazy" />
                 <figcaption class="ekb-home__caption">
                     <h2>Renovate With Confidence</h2>
@@ -110,7 +110,7 @@
                 </figcaption>
             </figure>
             <!-- Slide 3 -->
-            <figure class="ekb-home__slide" aria-roledescription="slide">
+            <figure class="ekb-home__slide" aria-roledescription="slide" aria-label="3 of 3">
                 <img src="assets/images/Other/bathroom/1.jpg" alt="Showcase 3" loading="lazy" />
                 <figcaption class="ekb-home__caption">
                     <h2>Made For Australian Homes</h2>
@@ -120,11 +120,11 @@
         </div>
 
         <!-- Controls -->
-        <button class="ekb-home__nav ekb-home__nav--prev" aria-label="Previous slide">&#10094;</button>
-        <button class="ekb-home__nav ekb-home__nav--next" aria-label="Next slide">&#10095;</button>
+        <button class="ekb-home__nav ekb-home__nav--prev" aria-label="Previous slide" type="button" tabindex="0" title="Previous">&#10094;</button>
+        <button class="ekb-home__nav ekb-home__nav--next" aria-label="Next slide" type="button" tabindex="0" title="Next">&#10095;</button>
 
         <!-- Dots -->
-        <div class="ekb-home__dots" role="tablist" aria-label="home slides"></div>
+        <div class="ekb-home__dots" role="tablist" aria-label="Home slides"></div>
     </section>
     <!-- ***** Home 16:9 Slider (Top of Main Banner) End ***** -->
 
@@ -454,11 +454,9 @@
                 </div>
             </div>
 
-            <!-- nav buttons -->
-                <div class="video-scroll"></div>
-                <button class="video-btn prev" aria-label="Scroll left">‹</button>
-                <button class="video-btn next" aria-label="Scroll right">›</button>
-
+            <!-- nav buttons (outside, siblings of video-scroll) -->
+            <button class="video-btn prev" aria-label="Scroll left">‹</button>
+            <button class="video-btn next" aria-label="Scroll right">›</button>
 
 
             <!-- Instagram script once -->
@@ -577,7 +575,7 @@
         </div>
         <!-- Read More Button -->
         <div class="text-center mt-4">
-            <a s class="btn btn-primary">Read More</a>
+            <a href="" class="btn btn-primary">Read More</a>
         </div>
     </section>
     <!-- ***** Client Comments Area Ends ***** -->
@@ -637,7 +635,7 @@
             </div>
         </div>
     </footer>
-    
+
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -658,34 +656,16 @@
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/isotope.js"></script>
 
-    <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
+
 
 
     <!-- Swiper JS + CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <script>
 
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-                
-            });
-        });
-
-    </script>
-
-    <!-- 810 JS -->
-    <script src="assets/js/templatemo-810.js?v=4"></script>
+    <!-- Global Init -->
+    <script src="assets/js/templatemo-810.js?v=7"></script>
 
   </body>
 </html>

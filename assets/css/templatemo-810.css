@@ -1,5 +1,36 @@
 /*
 ---------------------------------------------
+Full
+---------------------------------------------
+*/
+/* Smooth scroll for in-page anchors */
+html { scroll-behavior: smooth; }
+
+/* Tell the browser to keep some space above anchored sections */
+:root { --header-height: 80px; } /* adjust to your header’s real height */
+
+/* Most of your sections use .section; give them an anchor offset */
+.section,
+#home, #service, #why, #process, #gallery, #video, #faqs, #comment, #contact {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+/* On small screens your header is often taller — increase the offset */
+@media (max-width: 576px) {
+  :root { --header-height: 100px; } /* e.g. logo + hamburger row height */
+}
+
+/* Anchor offset for sticky header (adjust 90px to your header height) */
+:root { --header-offset: 90px; }
+.section, #home, #service, #why, #process, #gallery, #video, #faqs, #comment, #contact {
+  scroll-margin-top: var(--header-offset);
+}
+html {
+  scroll-behavior: smooth; /* native smooth scroll */
+}
+
+/*
+---------------------------------------------
 icon
 ---------------------------------------------
 */
@@ -148,30 +179,33 @@ Menu Bar
 
 /* (Tiny fix) Correct selector typo if used elsewhere */
 .header-area.header-sticky { color: #fff; }
-/*
----------------------------------------------
-Home 16:9 Slider (Top of Main Banner)
----------------------------------------------
-*/
-#home{
-    /*padding-top:130px;*/
-}
-/* ==EKB home 16:9 Slider ==*/
+
+/* ---------------------------------------------
+   Home 16:9 Slider (Top of Main Banner)
+---------------------------------------------- */
+#home { /* reserved for anchor */ }
+
+/* == EKB home 16:9 Slider == */
 .ekb-home {
   position: relative;
   width: 100%;
-  /* Keep perfect 16:9 while never exceeding viewport height */
-  height: min(56.25vw, 100vh); /* 9/16 = 0.5625 */
+  height: min(56.25vw, 100vh); /* 16:9, never exceed viewport height */
   overflow: hidden;
   background: #000;
-  /* Push content below sticky header nicely if header overlaps */
   margin-top: 0;
+  isolation: isolate; /* keep z-index context clean */
 }
 
-.header-sticky + .ekb-home {
-  /* If your header is fixed and overlaps, add top padding/margin as needed */
-  /* margin-top: var(--header-height, 0px); */
+/* Mobile-only margin top = 50px */
+@media (max-width: 576px) {
+  .ekb-home { margin-top: 50px; }
 }
+
+/* If you use a fixed header and want desktop offset, set this var on header:
+   :root { --header-height: 80px; } and uncomment the next rule if needed */
+/*
+.header-sticky + .ekb-home { margin-top: var(--header-height, 0px); }
+*/
 
 .ekb-home__track {
   position: relative;
@@ -183,8 +217,9 @@ Home 16:9 Slider (Top of Main Banner)
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 600ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
   will-change: opacity;
+  z-index: 0;
 }
 
 .ekb-home__slide.is-active {
@@ -197,7 +232,7 @@ Home 16:9 Slider (Top of Main Banner)
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills 16:9 box without squishing */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -245,10 +280,12 @@ Home 16:9 Slider (Top of Main Banner)
   text-align: center;
   cursor: pointer;
   z-index: 2;
-  transition: background 200ms ease;
+  transition: background 180ms ease, transform 180ms ease;
+  will-change: background, transform;
 }
 
-.ekb-home__nav:hover { background: rgba(0,0,0,0.6); }
+.ekb-home__nav:hover { background: rgba(0,0,0,0.6); transform: translateY(-50%) scale(1.03); }
+.ekb-home__nav:active { transform: translateY(-50%) scale(0.98); }
 .ekb-home__nav--prev { left: clamp(8px, 2vw, 24px); }
 .ekb-home__nav--next { right: clamp(8px, 2vw, 24px); }
 
@@ -278,41 +315,32 @@ Home 16:9 Slider (Top of Main Banner)
   transform: scale(1.2);
 }
 
-/* Responsive safety */
+/* Hide caption on ultra-short viewports to avoid overlap */
 @media (max-height: 520px) and (orientation: landscape) {
-  .ekb-home__caption { display: none; } /* keep visuals uncluttered on short viewports */
+  .ekb-home__caption { display: none; }
 }
 
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ekb-home__slide { transition: none; }
+  .ekb-home__nav { transition: none; }
+}
 
-/* Testimonials */
+/* --- (Optional) Example testimonial card styles retained --- */
 .testimonial-item {
-    background: #fff;
-    padding: 30px 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    text-align: center;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.testimonial-item p {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.testimonial-item h4 {
-    margin: 0;
-    font-weight: 600;
-    color: #333;
-}
-
-.testimonial-item span {
-    font-size: 14px;
-    color: #999;
-}
+.testimonial-item p { font-style: italic; color: #555; margin-bottom: 20px; }
+.testimonial-item h4 { margin: 0; font-weight: 600; color: #333; }
+.testimonial-item span { font-size: 14px; color: #999; }
 
 /*
 ---------------------------------------------
