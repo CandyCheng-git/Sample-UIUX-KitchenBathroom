@@ -593,6 +593,7 @@ Gallery
 */
 /* ---------------- Gallery Slide ---------------- */
 #gallery .swiper-slide {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: flex-start;     /* default: images align at top */
