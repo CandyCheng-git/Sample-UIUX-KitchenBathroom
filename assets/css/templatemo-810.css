@@ -1082,3 +1082,12 @@ Fade-in base
   }
 }
 
+/* Disable Lightbox image sprite fallbacks to stop 404s */
+.lb-prev, .lb-next, .lb-close, .lb-loader {
+  background-image: none !important;
+}
+
+:root { --header-offset: 90px; }
+#home, #service, #why, #process, #gallery, #video, #faqs, #comment, #contact {
+  scroll-margin-top: var(--header-offset);
+}

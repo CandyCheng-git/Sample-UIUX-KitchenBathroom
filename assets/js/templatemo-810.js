@@ -181,6 +181,7 @@
 
   /* ====================================================
      Theme / Nav (jQuery, guarded)
+     ——— Tablet fix: treat <992px as “mobile/tablet”
   ==================================================== */
   (function(){
     const jq = window.jQuery || window.$; if (!jq) return; const $ = jq;
@@ -198,15 +199,30 @@
     $(window).on('scroll', onScrollHeader);
     $(window).on('load', onScrollHeader);
 
+    function isTabletOrBelow(){ return $(window).width() < 992; }  // ← widened from 767 to 992
+
     function mobileNavBinding(){
-      const width=$(window).width();
       $('.submenu').off('click.__submenu').on('click.__submenu', function(){
-        if (width < 767) { $('.submenu ul').removeClass('active'); $(this).find('ul').toggleClass('active'); }
+        if (isTabletOrBelow()) {
+          $('.submenu ul').removeClass('active');
+          $(this).find('ul').toggleClass('active');
+        }
       });
     }
     if ($('.menu-trigger').length){
-      $('.menu-trigger').on('click', function(){ $(this).toggleClass('active'); $('.header-area .nav').slideToggle(200); });
+      $('.menu-trigger').on('click', function(){
+        $(this).toggleClass('active');
+        $('.header-area .nav').slideToggle(200);
+      });
     }
+    // Close the opened mobile/tablet menu after any in-page nav click
+    $(document).on('click', '.nav a[href*="#"]', function(){
+      if (isTabletOrBelow()) {
+        $('.menu-trigger').removeClass('active');
+        $('.header-area .nav').slideUp(180);
+      }
+    });
+
     $(document).on('scroll', debounce(function onScrollActive(){
       const scrollPos=$(document).scrollTop()||0;
       $('.nav a[href*="#"]').each(function(){
@@ -230,61 +246,6 @@
     });
   })();
 
-  /* ====================================================
-     GLOBAL: Anchor smooth-scroll with CAPTURE + robust target
-  ==================================================== */
-  (function(){
-    const resolveTarget = (href) => {
-      try {
-        // get hash from any href (absolute/relative)
-        const u = new URL(href, window.location.href);
-        if (!u.hash || u.hash === '#') return null;
-        const id = decodeURIComponent(u.hash.slice(1));
-        let el = document.getElementById(id) || document.querySelector(`[name="${id}"]`);
-        if (!el && window.CSS && typeof CSS.escape === 'function') {
-          try { el = document.querySelector('#' + CSS.escape(id)); } catch {}
-        }
-        return el;
-      } catch {
-        // fallback: if it's literally "#foo"
-        if (href && href.startsWith('#')) {
-          const id = decodeURIComponent(href.slice(1));
-          return document.getElementById(id) || document.querySelector(`[name="${id}"]`);
-        }
-        return null;
-      }
-    };
 
-    // capture phase to beat other preventDefault()s
-    document.addEventListener('click', function onDocClick(e){
-      const a = e.target.closest('a[href*="#"]');
-      if (!a) return;
-
-      const target = resolveTarget(a.getAttribute('href'));
-      if (!target) return; // allow browser default if not resolvable
-
-      e.preventDefault();
-      // close mobile menu if open
-      const menuTrigger = document.querySelector('.menu-trigger.active');
-      const nav = document.querySelector('.header-area .nav');
-      if (menuTrigger && nav) { menuTrigger.classList.remove('active'); nav.style.display='none'; }
-
-      smoothScrollTo(target);
-    }, { capture: true, passive: false });
-
-    // initial hash (after load)
-    window.addEventListener('load', ()=> {
-      if (location.hash) {
-        const t = resolveTarget(location.href);
-        if (t) setTimeout(()=>smoothScrollTo(t), 0);
-      }
-    });
-
-    // reacting to hashchange (e.g., scripts update hash)
-    window.addEventListener('hashchange', ()=> {
-      const t = resolveTarget(location.href);
-      if (t) smoothScrollTo(t);
-    });
-  })();
 
 })();
