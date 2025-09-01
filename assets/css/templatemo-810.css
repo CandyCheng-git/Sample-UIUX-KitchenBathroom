@@ -338,9 +338,9 @@ Menu Bar
   flex-direction: column;
   justify-content: center;
 }
-.testimonial-item p { font-style: italic; color: #555; margin-bottom: 20px; }
 .testimonial-item h4 { margin: 0; font-weight: 600; color: #333; }
-.testimonial-item span { font-size: 14px; color: #999; }
+.testimonial-item p { margin-top: 20px; margin-bottom: 0px; font-style: italic; color: #555; }
+.testimonial-item span {  margin: 0;font-size: 14px; color: #999; }
 
 /*
 ---------------------------------------------
@@ -368,7 +368,6 @@ Client Comments
 .testimonial-item p {
     font-style: italic;
     color: #555;
-    margin-bottom: 20px;
 }
 
 .testimonial-item h4 {
