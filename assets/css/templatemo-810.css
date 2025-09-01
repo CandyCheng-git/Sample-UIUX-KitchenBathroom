@@ -352,6 +352,10 @@ Client Comments
     padding-bottom: 90px;
 }
 
+#comment .owl-carousel {
+    margin-top: 90px;
+}
+
 /* Testimonials */
 .testimonial-item {
     background: #fff;
