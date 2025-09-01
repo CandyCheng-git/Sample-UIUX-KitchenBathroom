@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fd5a64-5b97-4b1d-a587-3f9afb1ae964" name="Changes" comment="Updated Ideal project files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/templatemo-810.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/templatemo-810.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/templatemo-hexashop.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/templatemo-hexashop.css" afterDir="false" />
+    <list default="true" id="e6fd5a64-5b97-4b1d-a587-3f9afb1ae964" name="Changes" comment="Updated Footer with based">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,11 +51,20 @@
       <option name="project" value="LOCAL" />
       <updated>1756726168653</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated Footer with based">
+      <option name="closed" value="true" />
+      <created>1756728888203</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1756728888203</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated Ideal project files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Ideal project files" />
+    <MESSAGE value="Updated Footer with based" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Footer with based" />
   </component>
 </project>
