@@ -1021,26 +1021,30 @@ Notes
 Contact Us
 ---------------------------------------------
 */
-
 #contact .section-heading h2 {
   font-size: clamp(28px, 3.2vw, 48px);
   line-height: 1.1;
   font-weight: 800;
-  color: #99ddcc;                 /* deep brown */
+  color: #99ddcc;
 }
 
 #contact ul li {
-    font-size: 16px;
-    font-weight: 700;
-    color: #99ddcc;
+  font-size: 16px;
+  font-weight: 700;
+  color: #99ddcc;
 }
 
-
 .email {
-    display: inline-block;
-    max-width: 100%;
-    white-space: normal; /* Allows wrapping */
-    overflow-wrap: break-word; /* Breaks long words */
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal; /* Allows wrapping */
+  overflow-wrap: break-word; /* Breaks long words */
+}
+
+/* Make links hover with brand color */
+#contact a:hover,
+footer a:hover {
+  color: #99DDCC;
 }
 
 /*
