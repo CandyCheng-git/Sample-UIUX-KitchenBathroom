@@ -1,0 +1,52 @@
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/edgekitc/.ssh/id_rsa.
+Your public key has been saved in /home/edgekitc/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:HLJnJnPhnlnkA2SjzwXfJuFBqFSfKP98UFpQWAtDgQ0
+The key's randomart image is:
++---[RSA 2048]----+
+|       .EBX=o    |
+|      .+oBoO .   |
+|     .+.= O *    |
+|      .X B *     |
+|      + S *      |
+|       O * o     |
+|        + o .    |
+|           .     |
+|                 |
++----[SHA256]-----+
+
+
+git@github.com:CandyCheng-git/Sample-UIUX-KitchenBathroom.git
+
+repositories/EdgeKitchensAndBathrooms
+
+EdgeKitchensAndBathrooms_PrivateGit
+
+
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/edgekitc/.ssh/id_rsa.
+Your public key has been saved in /home/edgekitc/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:f+vAD7NlQFnCcnaPsHt3YQ5gY4j6uABdT8DMcGNRdQY
+The key's randomart image is:
++---[RSA 4096]----+
+|   .=*+.oE+o.    |
+|    o=.o..BO.    |
+|  . . +  +=+oo   |
+| . . . . .. ...o |
+|  .   o S ..  + .|
+|   . . . o... ...|
+|    . .   *.+. . |
+|     .     X .   |
+|          ..+    |
++----[SHA256]-----+
+
+SSH passcode: 8yoZKO2e+pU*
+
+id_ed25519_github
+L4Y2,$=kxd^z
