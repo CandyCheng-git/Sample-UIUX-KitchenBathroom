@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fd5a64-5b97-4b1d-a587-3f9afb1ae964" name="Changes" comment="Updated - Contact content">
+    <list default="true" id="e6fd5a64-5b97-4b1d-a587-3f9afb1ae964" name="Changes" comment="Updated - Footer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/templatemo-810.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/templatemo-810.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -125,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756982129222</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Updated - Footer">
+      <option name="closed" value="true" />
+      <created>1756982344138</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1756982344138</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -136,6 +144,7 @@
     <MESSAGE value="Updated css - Client Comments" />
     <MESSAGE value="Updated css - Contact" />
     <MESSAGE value="Updated - Contact content" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated - Contact content" />
+    <MESSAGE value="Updated - Footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated - Footer" />
   </component>
 </project>

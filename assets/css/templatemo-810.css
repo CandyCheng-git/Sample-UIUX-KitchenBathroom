@@ -1034,12 +1034,6 @@ Contact Us
   color: #99ddcc;
 }
 
-.email {
-  display: inline-block;
-  max-width: 100%;
-  white-space: normal; /* Allows wrapping */
-  overflow-wrap: break-word; /* Breaks long words */
-}
 
 /* Make links hover with brand color */
 #contact a:hover,
