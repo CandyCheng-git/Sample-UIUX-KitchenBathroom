@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fd5a64-5b97-4b1d-a587-3f9afb1ae964" name="Changes" comment="Updated css - Client Comments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e6fd5a64-5b97-4b1d-a587-3f9afb1ae964" name="Changes" comment="Updated css - Contact">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756732697156</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Updated css - Contact">
+      <option name="closed" value="true" />
+      <created>1756978804406</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1756978804406</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -117,6 +124,7 @@
     <MESSAGE value="Updated css version" />
     <MESSAGE value="Updated css - Gallery" />
     <MESSAGE value="Updated css - Client Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated css - Client Comments" />
+    <MESSAGE value="Updated css - Contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated css - Contact" />
   </component>
 </project>
