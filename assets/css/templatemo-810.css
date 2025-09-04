@@ -441,13 +441,7 @@ Service
 
 #service .section-heading span,
 #service .eyebrow {
-  display: inline-block;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
   color: #9B846C;                 /* muted gold */
-  margin-bottom: 10px;
 }
 
 #service .section-heading p,
@@ -522,13 +516,7 @@ Our Process
 }
 
 #process .section-heading span{
-    display: inline-block;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 700;
     color: #9B846C;
-    margin-bottom: 10px;
 }
 
 .section-process .process-title {
@@ -1021,6 +1009,14 @@ Notes
 Contact Us
 ---------------------------------------------
 */
+
+.email {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal; /* Allows wrapping */
+  overflow-wrap: break-word; /* Breaks long words */
+}
+
 #contact .section-heading h2 {
   font-size: clamp(28px, 3.2vw, 48px);
   line-height: 1.1;
@@ -1033,6 +1029,7 @@ Contact Us
   font-weight: 700;
   color: #99ddcc;
 }
+
 
 
 /* Make links hover with brand color */
@@ -1112,4 +1109,17 @@ Fade-in base
 :root { --header-offset: 90px; }
 #home, #service, #why, #process, #gallery, #video, #faqs, #comment, #contact {
   scroll-margin-top: var(--header-offset);
+}
+
+
+/*
+---------------------------------------------
+Basic CSS
+---------------------------------------------
+*/
+/* Tablet and mobile */
+@media (max-width: 991px) {
+  .section-heading {
+    text-align: center;
+  }
 }
